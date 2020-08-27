@@ -1,0 +1,80 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-card/paper-card.html">
+
+<dom-module id="front-end">
+  <template>
+    <style>
+      :host {
+        display: block;
+        border-radius: 5px;
+        
+        
+      }
+      .cardcolor{
+        height: 68px;
+        width: 561px;
+        background:rgb(182,251,88);
+          
+      }
+      paper-card{
+        height: 68px;
+        width: 561px;
+      }
+      img{
+        display: block;
+        margin: auto;
+      }
+      
+      
+  
+    </style>
+    <div>
+      <img src="../test/img/ico-logo.png" alt="">
+    </div>
+    <div class="row content">
+      <div>
+        <paper-input label="text input"></paper-input>
+        
+      </div>
+      <div class="right">
+        <paper-button toggles raised>toggles</paper-button>
+      </div>
+    </div>
+
+    <paper-card class="cardcolor"  heading="" animated="false"> 
+      <h2>todo list by iron Bit</h2>
+      <img src="" alt="">
+    </paper-card>
+    <paper-card >
+      lista de lo que se va agregar
+    </paper-card>
+    
+    <slot></slot>
+  </template>
+
+  <script>
+    /**
+     * `front-end`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class FrontEnd extends Polymer.Element {
+      static get is() { return 'front-end'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'front-end'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(FrontEnd.is, FrontEnd);
+  </script>
+</dom-module>
