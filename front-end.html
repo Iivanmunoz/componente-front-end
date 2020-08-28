@@ -69,8 +69,6 @@
 
     <front-lista id="lista" text="se a agregado"></front-lista>
 
-   
-    
   </template>
 
   <script>
@@ -106,10 +104,8 @@
           this.agregaactividad(traevalor);
           this.$.inputvalor.value = "";
           // console.log(this.agregaactividad);
-        }
-        
+        } 
       }
-      
       agregaactividad(content){
         this.dispatchEvent(new CustomEvent('FrontEnd',{detail:{content: content}, bubbles:true, composed:true}))
       }
