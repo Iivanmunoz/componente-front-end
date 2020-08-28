@@ -2,6 +2,7 @@
 <link rel="import" href="../paper-input/paper-input.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../front-lista/front-lista.html">
 
 <dom-module id="front-end">
   <template>
@@ -24,7 +25,6 @@
       }paper-button{
         display: inline-block;
         box-sizing: border-box;
-       
         height: 100%;
       }
       
@@ -44,27 +44,32 @@
       img{
         display: block;
         margin: auto;
+        
       }
       h4{
         display: block;
         text-align: center;
       }
-      
-      
-  
     </style>
     <div>
-      <img src="../test/img/ico-logo.png" alt="">
+      <img src="https://github.com/Iivanmunoz/componente-front-end/blob/master/test/img/ico-logo.png" alt="">
       <h4>Frontend Test</h4>
     </div>
     <div class="row">
         <paper-input label="text input" id="inputvalor" value="{{valor1}}"></paper-input>
         <paper-button on-click="llenarlista">Agregar</paper-button>
+       
+        <p>{{valor1}}</p>
     </div>
 
     <paper-card class="cardcolor"  heading="" animated="false"> 
       <h2>todo list by iron Bit</h2>
-      <img class="botesito" src="../test/img/recycle-bin.svg" alt="">
+      <img class="botesito" src="https://github.com/Iivanmunoz/componente-front-end/blob/master/test/img/recycle-bin.svg" alt="">
+    </paper-card>
+
+    <front-lista id="lista" text="se a agregado"></front-lista>
+
+   
     
   </template>
 
@@ -90,12 +95,23 @@
             value:'',
             notify:true
           }
+          
         };
       }
+      
       llenarlista(){
         let traevalor = this.$.inputvalor.value;
-        console.log(traevalor);
-        this.$.inputvalor.value = "";
+
+        if(traevalor != ''){
+          this.agregaactividad(traevalor);
+          this.$.inputvalor.value = "";
+          // console.log(this.agregaactividad);
+        }
+        
+      }
+      
+      agregaactividad(content){
+        this.dispatchEvent(new CustomEvent('FrontEnd',{detail:{content: content}, bubbles:true, composed:true}))
       }
 
     }
