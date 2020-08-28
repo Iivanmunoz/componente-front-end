@@ -22,19 +22,19 @@
         background:rgb(182,251,88);
           
       }paper-button{
-        padding-left: 180px;
         display: inline-block;
         box-sizing: border-box;
-        width: 48%;
+       
         height: 100%;
       }
+      
       paper-input{
           margin-right: 1px;
           display: inline-block;
-          width: 450px;
+          
           margin-right: 1px;
           display: inline-block;box-sizing: border-box;
-          width: 48%;
+          width: 450px;
           height: 100%;
       }
       paper-card{
@@ -58,13 +58,8 @@
       <h4>Frontend Test</h4>
     </div>
     <div class="row">
-      
-        <paper-input label="text input"></paper-input>
-        <paper-button toggles raised>Agregar</paper-button>
-    
-   
-          
- 
+        <paper-input label="text input" id="inputvalor" value="{{valor1}}"></paper-input>
+        <paper-button on-click="llenarlista">Agregar</paper-button>
     </div>
 
     <paper-card class="cardcolor"  heading="" animated="false"> 
@@ -94,9 +89,20 @@
           prop1: {
             type: String,
             value: 'front-end'
+          },
+          valor1:{
+            type:String,
+            value:'',
+            notify:true
           }
         };
       }
+      llenarlista(){
+        let traevalor = this.$.inputvalor.value;
+        console.log(traevalor);
+        this.$.inputvalor.value = "";
+      }
+      
     }
 
     window.customElements.define(FrontEnd.is, FrontEnd);
